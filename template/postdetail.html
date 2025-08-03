@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lists</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: rgb(238, 214, 191);
+        font-family: "Times New Roman", Times, serif;
+      }
+      h2 {
+        text-align: center;
+        color: rgb(8, 8, 8);
+        padding: 15px;
+        font-weight: bold;
+        font-size: 55px;
+      }
+      p {
+        font-size: 20px;
+      }
+      a {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="conatiner">
+      <h2>{{ post.title }}</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <!-- <div class="card-body">
+              {% if post.image %}
+              <img
+                src="{{ post.image.url }}"
+                alt="Post Image"
+                style="max-width: 400px"
+              /><br />
+              {% endif %}
+              <p>{{ post.content }}</p>
+              <p style="color: blue">Created at: {{ post.create_at }}</p>
+              <div class="text-center">
+                <a
+                  href="{% url 'post_update' post.pk %}"
+                  class="btn btn-secondary"
+                  >Edit</a
+                >
+                <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger"
+                  >Delete</a
+                >
+                <a href="{% url 'post_list' %}" class="btn btn-primary"
+                  >Back to List</a
+                >
+              </div>
+            </div> -->
+            <div class="card-body">
+              <div class="row">
+                {% if post.image %}
+                <div class="col-md-4 text-center">
+                  <img
+                    src="{{ post.image.url }}"
+                    alt="Post Image"
+                    class="img-fluid rounded"
+                    style="width: 250px; height: auto"
+                  />
+                </div>
+                {% endif %}
+                <div class="col-md-8">
+                  <p>{{ post.content }}</p>
+                  <p style="color: blue">Created at: {{ post.create_at }}</p>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <a
+                  href="{% url 'post_update' post.pk %}"
+                  class="btn btn-secondary"
+                  >Edit</a
+                >
+                <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger"
+                  >Delete</a
+                >
+                <a href="{% url 'post_list' %}" class="btn btn-primary"
+                  >Back to List</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
